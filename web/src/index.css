@@ -1,0 +1,147 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+/* Radix Colors: the bucket tones. Light steps on :root, dark steps on .dark. */
+@import "@radix-ui/colors/blue.css";
+@import "@radix-ui/colors/blue-dark.css";
+@import "@radix-ui/colors/grass.css";
+@import "@radix-ui/colors/grass-dark.css";
+@import "@radix-ui/colors/violet.css";
+@import "@radix-ui/colors/violet-dark.css";
+@import "@radix-ui/colors/red.css";
+@import "@radix-ui/colors/red-dark.css";
+@import "@radix-ui/colors/amber.css";
+@import "@radix-ui/colors/amber-dark.css";
+@import "@radix-ui/colors/slate.css";
+@import "@radix-ui/colors/slate-dark.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@font-face {
+  font-family: "Geist";
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+  src: url("/fonts/Geist-Variable.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Geist";
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: swap;
+  src: url("/fonts/Geist-Italic-Variable.woff2") format("woff2");
+}
+
+/* ── shadcn/ui neutral theme ──────────────────────────────────────────── */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.145 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.145 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.145 0 0);
+  --primary: oklch(0.205 0 0);
+  --primary-foreground: oklch(0.985 0 0);
+  --secondary: oklch(0.97 0 0);
+  --secondary-foreground: oklch(0.205 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.556 0 0);
+  --accent: oklch(0.97 0 0);
+  --accent-foreground: oklch(0.205 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
+  --ring: oklch(0.708 0 0);
+  --canvas: oklch(0.985 0 0);
+  --canvas-dot: oklch(0.87 0 0);
+  --edge: oklch(0.85 0 0);
+}
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.205 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.205 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.922 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.556 0 0);
+  --canvas: oklch(0.17 0 0);
+  --canvas-dot: oklch(0.3 0 0);
+  --edge: oklch(0.35 0 0);
+}
+
+@theme inline {
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-canvas: var(--canvas);
+}
+
+@layer base {
+  * { @apply border-border outline-ring/50; }
+  html, body, #root { height: 100%; }
+  body { @apply bg-background text-foreground font-sans antialiased text-[13px] leading-normal; margin: 0; overflow: hidden; letter-spacing: -0.006em; }
+  ::selection { background: var(--blue-5); }
+  * { scrollbar-width: thin; scrollbar-color: var(--border) transparent; }
+}
+
+/* ── bucket tones (Radix steps: 3 bg · 6 border · 9 solid · 11 text) ──── */
+.tone-faq      { --tone-bg: var(--blue-3);   --tone-border: var(--blue-7);   --tone-solid: var(--blue-9);   --tone-fg: var(--blue-11); }
+.tone-sales    { --tone-bg: var(--grass-3);  --tone-border: var(--grass-7);  --tone-solid: var(--grass-9);  --tone-fg: var(--grass-11); }
+.tone-support  { --tone-bg: var(--violet-3); --tone-border: var(--violet-7); --tone-solid: var(--violet-9); --tone-fg: var(--violet-11); }
+.tone-escalate { --tone-bg: var(--red-3);    --tone-border: var(--red-7);    --tone-solid: var(--red-9);    --tone-fg: var(--red-11); }
+.tone-unsure   { --tone-bg: var(--amber-3);  --tone-border: var(--amber-7);  --tone-solid: var(--amber-9);  --tone-fg: var(--amber-11); }
+.tone-ignore   { --tone-bg: var(--slate-3);  --tone-border: var(--slate-7);  --tone-solid: var(--slate-9);  --tone-fg: var(--slate-11); }
+.tone-ok       { --tone-bg: var(--grass-3);  --tone-border: var(--grass-7);  --tone-solid: var(--grass-9);  --tone-fg: var(--grass-11); }
+.tone-held     { --tone-bg: var(--violet-3); --tone-border: var(--violet-7); --tone-solid: var(--violet-9); --tone-fg: var(--violet-11); }
+.tone-primary  { --tone-bg: var(--blue-3);   --tone-border: var(--blue-7);   --tone-solid: var(--blue-9);   --tone-fg: var(--blue-11); }
+
+/* ── React Flow ───────────────────────────────────────────────────────── */
+.react-flow { --xy-background-color: var(--canvas); --xy-background-pattern-color: var(--canvas-dot); --xy-edge-stroke-default: var(--edge); --xy-edge-stroke-width-default: 1.25; --xy-attribution-background-color: transparent; }
+.react-flow__attribution { display: none; }
+.react-flow__handle { width: 6px; height: 6px; min-width: 0; min-height: 0; border: 0; background: var(--edge); }
+.react-flow__handle.connectionindicator { cursor: default; }
+.react-flow__node { cursor: pointer; }
+.react-flow__controls { box-shadow: none; gap: 2px; }
+.react-flow__controls-button { background: var(--card); border: 1px solid var(--border); color: var(--muted-foreground); border-radius: 6px; width: 26px; height: 26px; }
+.react-flow__controls-button:hover { background: var(--accent); color: var(--foreground); }
+.react-flow__controls-button svg { fill: currentColor; max-width: 12px; max-height: 12px; }
+
+@keyframes node-pulse { 0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklch, var(--tone-solid) 45%, transparent); } 70% { box-shadow: 0 0 0 6px transparent; } }
+.node-working { animation: node-pulse 1.2s ease-out infinite; }
+@keyframes flash-ring { from { box-shadow: 0 0 0 4px color-mix(in oklch, var(--blue-9) 35%, transparent); } to { box-shadow: 0 0 0 0 transparent; } }
+.node-flash { animation: flash-ring 700ms ease-out; }
+
+textarea.autogrow { field-sizing: content; }
