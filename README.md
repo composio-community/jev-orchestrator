@@ -31,7 +31,7 @@ Jev answers three kinds of question.
 
 A large language model can do this work too. You ask it for text, you read the text back, and you hope the shape is right. Jev skips those steps and hands the numbers straight to your code.
 
-TypeSafe calls the method **atomic questions, composed in code**. You split a hard judgement into small questions, you ask them together, and you join the answers in your own logic. This app does that with three questions and three rules. One read costs about three hundredths of a cent and takes about half a second. The large model then runs only for a message that needs a reply.
+TypeSafe calls the method **atomic questions, composed in code**. You split a hard judgement into small questions, you ask them together, and you join the answers in your own logic. This app does that with three questions and three rules. One read costs about $0.00003 and takes about half a second. The large model then runs only for a message that needs a reply.
 
 ## What is Composio
 
@@ -47,7 +47,7 @@ Read the [Composio docs](https://docs.composio.dev) to see the full list.
 
 **It watches five places.** New mail in Gmail, new answers to a Typeform, new Slack messages, one Discord channel, and people who mention your handle on X. They all go through the same steps.
 
-**It decides before it writes.** Jev reads each message in about half a second, and one read costs about three hundredths of a cent. Spam and machine notices stop there, so you pay for a large model only when a message needs an answer.
+**It decides before it writes.** Jev reads each message in about half a second, and one read costs about $0.00003. A thousand messages cost about three cents. Spam and machine notices stop there, so you pay for a large model only when a message needs an answer.
 
 **It answers from your own words.** The agents read three Markdown files that you write. The FAQ agent can use only `faq.md`. If the answer is absent, it says so and it does not invent one. The support agent uses `support.md`. The sales agent gives your booking link, and it offers no discounts.
 
