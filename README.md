@@ -2,7 +2,7 @@
 
 Jev Orchestrator reads the messages that come in to your business, and it writes the replies.
 
-It connects to Gmail, Typeform, Slack, Discord and X. A small model reads each message and puts it into one of six groups. Only the group that matches runs an agent, and that agent writes the reply. You read the reply and click send.
+It connects to Gmail, Typeform, Slack, Discord and X through [Composio](https://composio.dev). A small model reads each message and puts it into one of six groups. Only the group that matches runs an agent, and that agent writes the reply. You read the reply and click send.
 
 ```
 Gmail · Typeform · Slack · Discord · X
@@ -32,6 +32,16 @@ Jev answers three kinds of question.
 A large language model can do this work too. You ask it for text, you read the text back, and you hope the shape is right. Jev skips those steps and hands the numbers straight to your code.
 
 TypeSafe calls the method **atomic questions, composed in code**. You split a hard judgement into small questions, you ask them together, and you join the answers in your own logic. This app does that with three questions and three rules. One read costs about three hundredths of a cent and takes about half a second. The large model then runs only for a message that needs a reply.
+
+## What is Composio
+
+[Composio](https://composio.dev) connects the app to the places your messages live. It holds the accounts, it sends the events, and it runs the tools that post a reply.
+
+You connect an account once in the browser, and Composio keeps the tokens. The triggers for Gmail, Typeform, Slack and Discord come over a subscription, so you need no public URL and no webhook.
+
+A tool session holds the tools you name and nothing else. The FAQ agent gets one tool to reply in a mail thread. A wrong turn in the model still cannot touch your drive or your calendar. Composio has more than three hundred apps, and each one you add here is a few lines of code.
+
+Read the [Composio docs](https://docs.composio.dev) to see the full list.
 
 ## What it can do
 
